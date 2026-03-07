@@ -46,8 +46,7 @@ function App() {
           <p>Connected: {address}</p>
 
           <p>
-            Contract Balance:{" "}
-            {balance ? formatEther(balance as bigint) : "0"} ETH
+            Cooldown: {cooldown ? (cooldown as bigint).toString() : "0"} seconds
           </p>
 
           <p>Cooldown: {cooldown?.toString()} seconds</p>
