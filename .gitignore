@@ -1,0 +1,15 @@
+# Environment files
+.env
+.env.*
+
+# Contract artifacts
+faucet-contract/cache/
+faucet-contract/out/
+
+# Frontend
+faucet-frontend/node_modules/
+faucet-frontend/dist/
+
+# OS
+.DS_Store
+Thumbs.db

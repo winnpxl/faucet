@@ -15,7 +15,7 @@ import { sepolia } from "wagmi/chains";
 
 const config = getDefaultConfig({
   appName: "Testnet Faucet",
-  projectId: "YOUR_WALLETCONNECT_PROJECT_ID",
+  projectId: "7437d7a8e41a1ecb38ee2ef8a7f59559",
   chains: [sepolia],
 });
 
