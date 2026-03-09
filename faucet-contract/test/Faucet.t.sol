@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 import "forge-std/Test.sol";
-import "../src/Faucet.sol";
 
 contract FaucetTest is Test {
     Faucet public faucet;
