@@ -1,0 +1,480 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap');
+
+/* ─── Reset & Base ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:           #0a0a0f;
+  --surface:      #111118;
+  --surface-2:    #16161f;
+  --border:       rgba(255,255,255,0.07);
+  --border-hover: rgba(99,102,241,0.4);
+  --indigo:       #6366f1;
+  --indigo-light: #818cf8;
+  --indigo-dim:   rgba(99,102,241,0.15);
+  --indigo-glow:  rgba(99,102,241,0.25);
+  --text:         #e4e4f0;
+  --text-muted:   #6b6b80;
+  --text-dim:     #4a4a5a;
+  --green:        #4ade80;
+  --red:          #f87171;
+  --radius:       14px;
+  --radius-sm:    8px;
+  --font:         'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Background ────────────────────────────────────────────── */
+.root {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px 20px 64px;
+}
+
+.bg-glow {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-glow-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
+  top: -200px;
+  left: -100px;
+}
+
+.bg-glow-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%);
+  bottom: -100px;
+  right: -100px;
+}
+
+.bg-noise {
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ─── Layout ────────────────────────────────────────────────── */
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: fadeUp 0.5s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Header ────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  width: 34px;
+  height: 34px;
+  background: var(--indigo-dim);
+  border: 1px solid rgba(99,102,241,0.3);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--indigo-light);
+}
+
+.logo-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.2px;
+}
+
+.connect-wrapper button {
+  font-family: var(--font) !important;
+}
+
+/* ─── Hero ──────────────────────────────────────────────────── */
+.hero {
+  padding: 8px 0 4px;
+}
+
+.hero-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: var(--text);
+  animation: fadeUp 0.5s 0.1s ease both;
+}
+
+.hero-accent {
+  background: linear-gradient(135deg, var(--indigo-light), #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-weight: 400;
+  animation: fadeUp 0.5s 0.15s ease both;
+}
+
+/* ─── Stats ─────────────────────────────────────────────────── */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  animation: fadeUp 0.5s 0.2s ease both;
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.stat-card:hover {
+  border-color: var(--border-hover);
+  background: var(--surface-2);
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.stat-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.3px;
+}
+
+.stat-sub {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* ─── Claim Card ────────────────────────────────────────────── */
+.claim-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeUp 0.5s 0.25s ease both;
+  transition: border-color 0.3s;
+}
+
+.claim-card:hover {
+  border-color: rgba(99,102,241,0.2);
+}
+
+/* ─── Field ─────────────────────────────────────────────────── */
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field-label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.field-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  min-height: 46px;
+  transition: border-color 0.2s;
+}
+
+.field-input:has(.connected) {
+  border-color: rgba(74,222,128,0.25);
+}
+
+.field-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.field-dot.connected {
+  background: var(--green);
+  box-shadow: 0 0 6px var(--green);
+  animation: pulse-dot 2s infinite;
+}
+
+.field-dot.disconnected {
+  background: var(--text-dim);
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.field-address {
+  font-size: 0.8rem;
+  color: var(--text);
+  font-family: 'Geist Mono', monospace;
+  word-break: break-all;
+  line-height: 1.4;
+}
+
+.field-placeholder {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
+/* ─── Cooldown Bar ──────────────────────────────────────────── */
+.cooldown-bar-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cooldown-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cooldown-label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.cooldown-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 99px;
+  letter-spacing: 0.02em;
+}
+
+.cooldown-badge.ready {
+  background: rgba(74,222,128,0.12);
+  color: var(--green);
+  border: 1px solid rgba(74,222,128,0.25);
+}
+
+.cooldown-badge.waiting {
+  background: rgba(248,113,113,0.1);
+  color: var(--red);
+  border: 1px solid rgba(248,113,113,0.2);
+}
+
+.cooldown-track {
+  height: 4px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.cooldown-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--indigo), var(--indigo-light));
+  border-radius: 99px;
+  transition: width 1s linear;
+}
+
+/* ─── Claim Button ──────────────────────────────────────────── */
+.claim-btn {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--indigo), #7c3aed);
+  color: #fff;
+  font-family: var(--font);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.1px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: 0 0 0 0 var(--indigo-glow), 0 2px 12px rgba(99,102,241,0.3);
+}
+
+.claim-btn:not(.disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 4px var(--indigo-glow), 0 8px 24px rgba(99,102,241,0.4);
+  filter: brightness(1.08);
+}
+
+.claim-btn:not(.disabled):active {
+  transform: translateY(0px) scale(0.98);
+  box-shadow: 0 0 0 2px var(--indigo-glow);
+}
+
+.claim-btn.disabled {
+  background: var(--surface-2);
+  color: var(--text-dim);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.claim-btn-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+  pointer-events: none;
+}
+
+/* Ripple effect */
+.claim-btn.ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.25);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: ripple-anim 0.6s ease-out forwards;
+}
+
+@keyframes ripple-anim {
+  to {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+/* ─── Tx Feedback ───────────────────────────────────────────── */
+.tx-feedback {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tx-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tx-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.tx-link {
+  font-size: 0.75rem;
+  color: var(--indigo-light);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s;
+}
+
+.tx-link:hover {
+  color: #fff;
+}
+
+.tx-confirmed {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--green);
+  font-weight: 500;
+}
+
+/* ─── Footer ────────────────────────────────────────────────── */
+.footer {
+  text-align: center;
+  animation: fadeUp 0.5s 0.3s ease both;
+}
+
+.footer-link {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.15s;
+}
+
+.footer-link:hover {
+  color: var(--text-muted);
+}
