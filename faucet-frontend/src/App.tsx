@@ -145,7 +145,7 @@ function App() {
         {/* Hero */}
         <div className="hero">
           <h1 className="hero-title">
-            Testnet ETH,<br />
+            Get SepoliaEth tokens,<br />
             <span className="hero-accent">instantly.</span>
           </h1>
           <p className="hero-sub">
