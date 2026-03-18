@@ -83,7 +83,7 @@ function App() {
     };
   }, [countdown]);
 
-  async function claim(e: React.MouseEvent<HTMLButtonElement>) {
+  async function claim(_e: React.MouseEvent<HTMLButtonElement>) {
     setRipple(true);
     setTimeout(() => setRipple(false), 600);
     try {
