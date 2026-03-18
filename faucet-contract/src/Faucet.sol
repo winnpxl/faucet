@@ -4,8 +4,8 @@ pragma solidity ^0.8.20;
 contract Faucet {
     // ─── State ───────────────────────────────────────────────
     address public owner;
-    uint256 public cooldown = 1 minutes;
-    uint256 public dripAmount = 0.01 ether;
+    uint256 public cooldown = 1 days;
+    uint256 public dripAmount = 0.0001 ether;
 
     mapping(address => uint256) public lastClaim;
 
