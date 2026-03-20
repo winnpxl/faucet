@@ -1,5 +1,18 @@
 # Sepolia Faucet
 
+[![Solidity](https://img.shields.io/badge/Solidity-0.8.33-363636?logo=solidity)](https://soliditylang.org/)
+[![Foundry](https://img.shields.io/badge/Built%20with-Foundry-FFDB1C)](https://getfoundry.sh/)
+[![Tests](https://img.shields.io/badge/Tests-16%20passing-brightgreen)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+**[Live Demo →](https://faucetgenerator-8hu0f5sve-titanwinner6-1334s-projects.vercel.app)**
+
+A Web3 faucet application that lets users claim free Sepolia testnet ETH.
+Built with Solidity, Foundry, and React.
+
+
+# Sepolia Faucet
+
 A Web3 faucet application that lets users claim free Sepolia testnet ETH. Built with Solidity, Foundry, and React.
 
 ## Live Contract
